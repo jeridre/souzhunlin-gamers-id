@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SOUZHUNLIN STORE - Top Up BBC, Diamonds dan Jasa Advan Server">
+<title>SOUZHUNLIN STORE</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#080b12;color:#fff;line-height:1.5}
+a{text-decoration:none;color:inherit}
+header{position:sticky;top:0;z-index:20;background:rgba(8,11,18,.94);backdrop-filter:blur(12px);border-bottom:1px solid #202838}
+.nav{max-width:1100px;margin:auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-size:22px;font-weight:900;letter-spacing:1px}
+.logo span{color:#00e5ff}
+nav{display:flex;gap:18px}
+nav a{color:#cbd5e1;font-size:14px;font-weight:bold}
+nav a:hover{color:#00e5ff}
+.cart-btn,.primary{border:0;border-radius:12px;padding:11px 16px;font-weight:800;cursor:pointer}
+.cart-btn{background:#151d2b;color:#fff;border:1px solid #29354a}
+.primary{background:#00d9ff;color:#001017}
+.hero{max-width:1100px;margin:auto;padding:70px 20px 45px;text-align:center}
+.badge{display:inline-block;background:#102a35;color:#4deaff;border:1px solid #14556a;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:800;margin-bottom:16px}
+h1{font-size:clamp(38px,7vw,70px);line-height:1;font-weight:950}
+h1 span{color:#00e5ff}
+.hero p{max-width:680px;margin:18px auto;color:#9aa8bb}
+.hero-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
+section{max-width:1100px;margin:auto;padding:38px 20px}
+.section-title{margin-bottom:20px}
+.section-title h2{font-size:28px}
+.section-title p{color:#8491a5;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px}
+.card{background:#0e141f;border:1px solid #202b3d;border-radius:18px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.card h3{font-size:17px;margin-bottom:8px}
+.card p{font-size:13px;color:#94a3b8}
+.price{font-size:22px;font-weight:900;color:#00e5ff;margin:14px 0}
+.card button{width:100%;background:#172235;color:#fff;border:1px solid #30415a;padding:11px;border-radius:10px;cursor:pointer;font-weight:800}
+.card button:hover{background:#00d9ff;color:#001017}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.info .card{min-height:130px}
+.form-box{max-width:760px;margin:auto;background:#0e141f;border:1px solid #202b3d;border-radius:18px;padding:22px}
+label{display:block;font-size:13px;color:#cbd5e1;font-weight:bold;margin:12px 0 6px}
+input,select{width:100%;padding:13px;border-radius:10px;border:1px solid #2a374c;background:#080d16;color:#fff;outline:none}
+input:focus,select:focus{border-color:#00d9ff}
+.notice{font-size:12px;color:#8794a8;margin-top:12px}
+footer{text-align:center;color:#6f7c8e;padding:40px 20px;border-top:1px solid #1c2534;margin-top:30px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:50;padding:20px;overflow:auto}
+.modal.show{display:flex;align-items:center;justify-content:center}
+.modal-box{width:min(560px,100%);background:#0e141f;border:1px solid #2a374c;border-radius:18px;padding:22px;position:relative}
+.close{position:absolute;right:15px;top:12px;background:none;border:0;color:#fff;font-size:25px;cursor:pointer}
+.cart-item{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #202b3d;padding:12px 0}
+.cart-item small{color:#8d9aae}
+.total{display:flex;justify-content:space-between;font-size:20px;font-weight:900;padding:18px 0}
+.empty{color:#7f8da0;text-align:center;padding:25px}
+.admin{display:none}
+.admin.show{display:block}
+hr{border:0;border-top:1px solid #202b3d;margin:20px 0}
+@media(max-width:700px){nav{display:none}.nav{padding:13px 15px}.hero{padding-top:50px}section{padding:30px 15px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">SOUZHUNLIN<span>_GAMERS</span></div>
+    <nav>
+      <a href="#advan">Advan Server</a>
+      <a href="#kebutuhan">Kebutuhan</a>
+      <a href="#topup">Top Up</a>
+      <a href="#checkout">Checkout</a>
+    </nav>
+    <button class="cart-btn" onclick="openCart()">🛒 Keranjang (<span id="cartCount">0</span>)</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="badge">⚡ SOUZHUNLIN STORE</div>
+  <h1>TOP UP & <span>ADvan SERVER</span></h1>
+  <p>Semua kebutuhan ada di sini. Jasa buat Advan Server, Top Up BBC dan Diamonds dengan proses pemesanan langsung melalui WhatsApp Admin.</p>
+  <div class="hero-actions">
+    <a class="primary" href="#topup">Lihat Produk</a>
+    <a class="cart-btn" href="https://wa.me/6283112005945?text=Halo%20Admin%20SOUZHUNLIN%20STORE" target="_blank">💬 WhatsApp Admin</a>
+  </div>
+</section>
+
+<section id="advan">
+  <div class="section-title">
+    <h2>🛠️ JASA BUAT ADVAN SERVER</h2>
+    <p>Pilih layanan Advan Server yang kamu butuhkan.</p>
+  </div>
+  <div class="grid" id="advanGrid"></div>
+</section>
+
+<section id="kebutuhan">
+  <div class="section-title">
+    <h2>📦 SEMUA KEBUTUHAN ADA DISINI</h2>
+    <p>Informasi layanan dan pembayaran.</p>
+  </div>
+  <div class="info">
+    <div class="card"><h3>⚡ Proses</h3><p>Order melalui website lalu lanjut konfirmasi dengan Admin WhatsApp.</p></div>
+    <div class="card"><h3>💳 Pembayaran</h3><p>QRIS, DANA, GOPAY dan BRI.</p></div>
+    <div class="card"><h3>📱 Admin</h3><p>WhatsApp: +62 831-1200-5945</p></div>
+    <div class="card"><h3>📸 Owner</h3><p>Instagram: @j3e_45</p></div>
+  </div>
+</section>
+
+<section id="topup">
+  <div class="section-title">
+    <h2>💎 TOP UP BBC / TOP UP DIAMONDS</h2>
+    <p>Pilih paket yang tersedia.</p>
+  </div>
+  <div class="grid" id="topupGrid"></div>
+</section>
+
+<section id="checkout">
+  <div class="section-title">
+    <h2>🧾 DATA PEMESANAN</h2>
+    <p>Isi data sebelum mengirim order ke Admin.</p>
+  </div>
+  <div class="form-box">
+    <label>Nama</label>
+    <input id="name" placeholder="Nama kamu">
+    <label>No WhatsApp</label>
+    <input id="phone" placeholder="08xxxxxxxxxx">
+    <label>Gmail</label>
+    <input id="gmail" type="email" placeholder="nama@gmail.com">
+    <label>ID Server</label>
+    <input id="serverId" placeholder="Masukkan ID Server">
+    <label>Pembayaran</label>
+    <select id="payment">
+      <option value="">-- Pilih pembayaran --</option>
+      <option>QRIS</option>
+      <option>DANA</option>
+      <option>GOPAY</option>
+      <option>BRI</option>
+    </select>
+    <button class="primary" style="width:100%;margin-top:18px" onclick="checkout()">📲 Kirim Order ke WhatsApp</button>
+    <p class="notice">⚠️ Jangan pernah mengirim password, PIN, OTP, atau kode keamanan akun.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <b>SOUZHUNLIN STORE</b><br>
+  Jasa Advan Server • Top Up BBC • Diamonds<br>
+  © 2026 SOUZHUNLIN STORE
+</footer>
+
+<div class="modal" id="cartModal" onclick="outsideClose(event,'cartModal')">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('cartModal')">×</button>
+    <h2>🛒 Keranjang</h2>
+    <div id="cartItems"></div>
+    <div class="total"><span>Total</span><span id="cartTotal">Rp0</span></div>
+    <button class="primary" style="width:100%" onclick="goCheckout()">Lanjut ke Checkout</button>
+  </div>
+</div>
+
+<div class="modal" id="loginModal" onclick="outsideClose(event,'loginModal')">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('loginModal')">×</button>
+    <h2>🔐 Login Admin</h2>
+    <label>Username</label><input id="adminUser" placeholder="Username">
+    <label>Password</label><input id="adminPass" type="password" placeholder="Password">
+    <button class="primary" style="width:100%;margin-top:18px" onclick="loginAdmin()">Login</button>
+    <p class="notice">Demo frontend: admin / admin123</p>
+  </div>
+</div>
+
+<div class="modal" id="adminModal" onclick="outsideClose(event,'adminModal')">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('adminModal')">×</button>
+    <h2>⚙️ Admin Dashboard</h2>
+    <hr>
+    <div class="card">
+      <h3>Order tersimpan di browser</h3>
+      <p id="orderInfo">Belum ada order.</p>
+    </div>
+    <button class="cart-btn" style="margin-top:15px" onclick="clearOrders()">Hapus Data Demo</button>
+  </div>
+</div>
+
+<script>
+const ADMIN_WA="6283112005945";
+
+const advan=[
+ ["Cabang 3set lv20","Cabang 3set lv20"],
+ ["Cabang indo 1set lv20","Cabang indo 1set lv20"],
+ ["Cabang jpang 1set lv20","Cabang jpang 1set lv20"],
+ ["Cabang 1srvr 20cabang lv3","Cabang 1srvr 20cabang lv3"],
+ ["Cabang 1srvr 30cabang lv3","Cabang 1srvr 30cabang lv3"],
+ ["Cabang 1srvr 40cabang lv3","Cabang 1srvr 40cabang lv3"]
+];
+
+const topup=[
+ ["5.000 BBC • 1000 DM","Rp23.000",23000],
+ ["10.000 BBC • 2000 DM","Rp46.000",46000],
+ ["15.000 BBC • 3000 DM","Rp69.000",69000],
+ ["20.000 BBC • 4000 DM","Rp92.000",92000],
+ ["25.000 BBC • 5000 DM","Rp115.000",115000]
+];
+
+let cart=JSON.parse(localStorage.getItem("souzhunlin_cart")||"[]");
+
+function rupiah(n){return new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(n)}
+function saveCart(){localStorage.setItem("souzhunlin_cart",JSON.stringify(cart));updateCart()}
+function addItem(name,price){
+  cart.push({name,price:price||0});
+  saveCart();
+  alert("Produk ditambahkan ke keranjang!");
+}
+function updateCart(){
+  document.getElementById("cartCount").textContent=cart.length;
+  const box=document.getElementById("cartItems");
+  if(!cart.length){box.innerHTML='<div class="empty">Keranjang masih kosong.</div>';document.getElementById("cartTotal").textContent=rupiah(0);return}
+  box.innerHTML=cart.map((x,i)=>`<div class="cart-item"><div><b>${x.name}</b><br><small>${x.price?rupiah(x.price):"Harga dikonfirmasi Admin"}</small></div><button class="cart-btn" onclick="removeItem(${i})">Hapus</button></div>`).join("");
+  const total=cart.reduce((a,b)=>a+b.price,0);
+  document.getElementById("cartTotal").textContent=rupiah(total);
+}
+function removeItem(i){cart.splice(i,1);saveCart();renderCart()}
+function renderCart(){updateCart()}
+function openCart(){renderCart();document.getElementById("cartModal").classList.add("show")}
+function closeModal(id){document.getElementById(id).classList.remove("show")}
+function outsideClose(e,id){if(e.target.id===id)closeModal(id)}
+function goCheckout(){closeModal("cartModal");document.getElementById("checkout").scrollIntoView({behavior:"smooth"})}
+
+document.getElementById("advanGrid").innerHTML=advan.map(x=>`
+<div class="card"><h3>🛠️ ${x[0]}</h3><p>${x[1]}</p><div class="price">Hubungi Admin</div><button onclick="addItem('${x[0].replace(/'/g,"\\'")}',0)">Tambah ke Keranjang</button></div>`).join("");
+
+document.getElementById("topupGrid").innerHTML=topup.map(x=>`
+<div class="card"><h3>💎 ${x[0]}</h3><p>Paket Top Up</p><div class="price">${x[1]}</div><button onclick="addItem('${x[0].replace(/'/g,"\\'")}',${x[2]})">Tambah ke Keranjang</button></div>`).join("");
+
+function checkout(){
+  if(!cart.length){alert("Keranjang masih kosong. Pilih produk terlebih dahulu.");return}
+  const name=document.getElementById("name").value.trim();
+  const phone=document.getElementById("phone").value.trim();
+  const gmail=document.getElementById("gmail").value.trim();
+  const server=document.getElementById("serverId").value.trim();
+  const payment=document.getElementById("payment").value;
+  if(!name||!phone||!gmail||!server||!payment){alert("Lengkapi semua data pemesanan.");return}
+  const products=cart.map(x=>`- ${x.name} (${x.price?rupiah(x.price):"Harga konfirmasi Admin"})`).join("\n");
+  const total=cart.reduce((a,b)=>a+b.price,0);
+  const text=`Halo Admin SOUZHUNLIN STORE 👋
+
+Saya ingin order:
+${products}
+
+Total: ${total?rupiah(total):"Konfirmasi Admin"}
+
+DATA PEMESAN:
+Nama: ${name}
+No WhatsApp: ${phone}
+Gmail: ${gmail}
+ID Server: ${server}
+Pembayaran: ${payment}
+
+Mohon diproses. Terima kasih.`;
+  const orders=JSON.parse(localStorage.getItem("souzhunlin_orders")||"[]");
+  orders.push({date:new Date().toLocaleString("id-ID"),name,phone,gmail,server,payment,products,total});
+  localStorage.setItem("souzhunlin_orders",JSON.stringify(orders));
+  window.open("https://wa.me/"+ADMIN_WA+"?text="+encodeURIComponent(text),"_blank");
+}
+
+function loginAdmin(){
+  if(document.getElementById("adminUser").value==="admin" && document.getElementById("adminPass").value==="admin123"){
+    closeModal("loginModal");
+    const orders=JSON.parse(localStorage.getItem("souzhunlin_orders")||"[]");
+    document.getElementById("orderInfo").innerHTML=orders.length?`Ada <b>${orders.length}</b> order demo tersimpan di browser ini.`:"Belum ada order.";
+    document.getElementById("adminModal").classList.add("show");
+  }else alert("Username atau password salah.");
+}
+function clearOrders(){
+  localStorage.removeItem("souzhunlin_orders");
+  document.getElementById("orderInfo").textContent="Data demo sudah dihapus.";
+}
+updateCart();
+</script>
+</body>
+</html>
